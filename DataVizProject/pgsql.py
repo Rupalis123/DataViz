@@ -13,11 +13,18 @@ from . import app
 import os
 
 
-DATABASE_URL = os.environ.get(
-    'DATABASE_URL', '') or "your database connection string"
+# DATABASE_URL = os.environ.get(
+#     'DATABASE_URL', '') or "your database connection string"
+# app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
+# db = SQLAlchemy(app)
+
+#my addition for url
+
+DATABASE_URL = os.environ.get("postgresql://postgres:postgres@localhost:5432/herokutestdeployment")
 app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
 db = SQLAlchemy(app)
 
+#my addition ended
 
 def getApiInfo():
     print("entering getapiinfo")
